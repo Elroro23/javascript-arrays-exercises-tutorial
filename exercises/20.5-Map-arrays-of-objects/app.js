@@ -7,8 +7,15 @@ let people = [
 ];
 
 let simplifier = function(person) {
-	// Your code here
-	return person.name;
+	let currentDate = new Date (); //Obtenemos la fecha actual.
+	let age = currentDate.getFullYear() - person.birthDate.getFullYear(); //Obtenemos el año actual y el de cada persona y los restamos.
+	let birthDateThisYear = new Date(currentDate.getFullYear(), person.birthDate.getMonth(), person.birthDate.getDate()); //Obtenemos el año, mes y dia de cada persona.
+	
+	if (currentDate < birthDateThisYear){ //Creamos una condición. Si la fecha actual es menor que la fecha de cada perosna se le resta un año a la edad.
+		age = age - 1; //Obtenemos la edad exacta de cada persona.
+	};
+	return (`Hello, my name is ${person.name} and I am ${age} years old`);
 };
+
 
 console.log(people.map(simplifier));

@@ -8,5 +8,7 @@ let tasks = [
   { label: "Read a book", done: true },
   { label: "Make a trip", done: false },
 ];
-
-// Your code here
+let tasksTrue = tasks.filter(function(task){ //Aplicamos .filter() al array de objetos con una función.
+  return task.done === true; //retornamos la condición para que solo devuelva los objetos con done: true.
+});
+console.log(tasksTrue);
